@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+    container_name: abmex_challenger
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=abmex_challenger
+    volumes:
+      - abmex:/data/postgres
+
+volumes:
+  abmex:
+    driver: local

@@ -1,4 +1,4 @@
-import { ICreateTournamentDTO } from './dtos/ICreateTournamentDTO';
+import { ICreateTournamentDTO } from '../dtos/ICreateTournamentDTO';
 import { Tournament } from './entities/tournament';
 
 interface ITournamentRepository {
@@ -7,6 +7,10 @@ interface ITournamentRepository {
     descricao,
     premiacao,
   }: ICreateTournamentDTO) => Promise<Tournament>;
+
+  listTournamentById: (id: string) => Promise<Tournament | null>;
+
+  listAllTournament: () => Promise<Tournament[]>;
 }
 
 export { ITournamentRepository };

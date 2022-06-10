@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateTeamsDTO } from '../dtos/ICreateTeamsDTO';
-import { Team } from '../infra/entities/teams';
-import { ITeamsRepository } from '../infra/repositories/ITeamsRepository';
+import { ICreateTeamsDTO } from '../../dtos/ICreateTeamsDTO';
+import { Team } from '../../infra/entities/teams';
+import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 
 @injectable()
 class CreateTeamUseCase {

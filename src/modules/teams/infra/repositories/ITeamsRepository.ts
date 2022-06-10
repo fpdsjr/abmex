@@ -5,6 +5,7 @@ import { Team } from '../entities/teams';
 interface ITeamsRepository {
   createTeam: ({ id, nome, iniciais }: ICreateTeamsDTO) => Promise<Team>;
   updateTeam: ({ id, nome, iniciais }: IUpdateTeamsDTO) => Promise<Team>;
+  listAllTeams: () => Promise<Team[]>;
 }
 
 export { ITeamsRepository };

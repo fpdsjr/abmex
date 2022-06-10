@@ -36,6 +36,16 @@ class TeamsRepository implements ITeamsRepository {
 
     return listAllTeams;
   }
+
+  async findTeamById(id: string): Promise<Team | null> {
+    const findTeamById = prisma.time.findFirst({
+      where: {
+        id,
+      },
+    });
+
+    return findTeamById;
+  }
 }
 
 export { TeamsRepository };

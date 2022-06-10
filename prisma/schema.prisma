@@ -15,6 +15,17 @@ model Campeonato {
   nome      String
   descricao String
   premiacao Int
+  times     Time[]
 
   @@map("campeonato")
+}
+
+model Time {
+  id           String      @id @default(uuid())
+  nome         String
+  iniciais     String
+  campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
+  campeonatoId String?
+
+  @@map("time")
 }

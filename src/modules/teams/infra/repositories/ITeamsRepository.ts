@@ -6,6 +6,7 @@ interface ITeamsRepository {
   createTeam: ({ id, nome, iniciais }: ICreateTeamsDTO) => Promise<Team>;
   updateTeam: ({ id, nome, iniciais }: IUpdateTeamsDTO) => Promise<Team>;
   listAllTeams: () => Promise<Team[]>;
+  findTeamById: (id: string) => Promise<Team | null>;
 }
 
 export { ITeamsRepository };

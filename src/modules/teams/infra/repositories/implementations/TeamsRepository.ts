@@ -1,5 +1,6 @@
 import { prisma } from '../../../../../database/prisma';
 import { ICreateTeamsDTO } from '../../../dtos/ICreateTeamsDTO';
+import { IUpdateTeamsDTO } from '../../../dtos/IUpdateTeamDTO';
 import { Team } from '../../entities/teams';
 import { ITeamsRepository } from '../ITeamsRepository';
 
@@ -14,6 +15,20 @@ class TeamsRepository implements ITeamsRepository {
     });
 
     return createTeam;
+  }
+
+  async updateTeam({ id, nome, iniciais }: IUpdateTeamsDTO): Promise<Team> {
+    const updateTeam = await prisma.time.update({
+      where: {
+        id,
+      },
+      data: {
+        nome,
+        iniciais,
+      },
+    });
+
+    return updateTeam;
   }
 }
 

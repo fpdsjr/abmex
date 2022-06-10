@@ -30,6 +30,12 @@ class TeamsRepository implements ITeamsRepository {
 
     return updateTeam;
   }
+
+  async listAllTeams(): Promise<Team[]> {
+    const listAllTeams = await prisma.time.findMany();
+
+    return listAllTeams;
+  }
 }
 
 export { TeamsRepository };

@@ -1,6 +1,5 @@
+import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
 import { inject, injectable } from 'tsyringe';
-
-import { ITournamentRepository } from '../../infra/repositories/ITournamentRepository';
 
 @injectable()
 class ListTournamentByIdUseCase {

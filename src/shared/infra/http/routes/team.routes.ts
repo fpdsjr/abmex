@@ -1,11 +1,10 @@
+import { CreateTeamController } from '~/modules/teams/useCases/createTeam/CreateTeamController';
 import { DeleteTeamController } from '~/modules/teams/useCases/deleteTeam/DeleteTeamController';
+import { FindTeamByIdController } from '~/modules/teams/useCases/findTeamById/FindTeamByIdController';
+import { ListAllTeamsController } from '~/modules/teams/useCases/listAllTeams/ListAllTeamsController';
+import { ListTeamsByTournamentController } from '~/modules/teams/useCases/listTeamsByTournament/ListTeamsByTournamentController';
+import { UpdateTeamController } from '~/modules/teams/useCases/updateTeam/UpdateTeamController';
 import { Router } from 'express';
-
-import { CreateTeamController } from '../../../../modules/teams/useCases/createTeam/CreateTeamController';
-import { FindTeamByIdController } from '../../../../modules/teams/useCases/findTeamById/FindTeamByIdController';
-import { ListAllTeamsController } from '../../../../modules/teams/useCases/listAllTeams/ListAllTeamsController';
-import { ListTeamsByTournamentController } from '../../../../modules/teams/useCases/listTeamsByTournament/ListTeamsByTournamentController';
-import { UpdateTeamController } from '../../../../modules/teams/useCases/updateTeam/UpdateTeamController';
 
 const teamRoute = Router();
 

@@ -1,9 +1,8 @@
+import { CreateTournamentController } from '~/modules/tournaments/useCases/createTournament/CreateTournamentController';
+import { ListAllTournamentController } from '~/modules/tournaments/useCases/listAllTournament/ListAllTournamentController';
+import { ListTournamentByIdController } from '~/modules/tournaments/useCases/listTournamentById/listTournamentByIdController';
+import { UpdateTournamentController } from '~/modules/tournaments/useCases/updateTournament/UpdateTournamentController';
 import { Router } from 'express';
-
-import { CreateTournamentController } from '../../../../modules/tournaments/useCases/createTournament/CreateTournamentController';
-import { ListAllTournamentController } from '../../../../modules/tournaments/useCases/listAllTournament/ListAllTournamentController';
-import { ListTournamentByIdController } from '../../../../modules/tournaments/useCases/listTournamentById/listTournamentByIdController';
-import { UpdateTournamentController } from '../../../../modules/tournaments/useCases/updateTournament/UpdateTournamentController';
 
 const tournamentRoutes = Router();
 

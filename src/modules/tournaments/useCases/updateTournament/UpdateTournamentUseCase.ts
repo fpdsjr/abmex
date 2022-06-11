@@ -1,7 +1,6 @@
+import { IUpdateTournamentDTO } from '~/modules/tournaments/dtos/IUpdateTournamentDTO';
+import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
 import { inject, injectable } from 'tsyringe';
-
-import { IUpdateTournamentDTO } from '../../dtos/IUpdateTournamentDTO';
-import { ITournamentRepository } from '../../infra/repositories/ITournamentRepository';
 
 @injectable()
 class UpdateTournamentUseCase {

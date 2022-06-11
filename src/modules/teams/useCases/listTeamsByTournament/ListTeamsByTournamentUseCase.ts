@@ -1,6 +1,5 @@
+import { ITeamsRepository } from '~/modules/teams/infra/repositories/ITeamsRepository';
 import { inject, injectable } from 'tsyringe';
-
-import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 
 @injectable()
 class ListTeamsByTournamentUseCase {

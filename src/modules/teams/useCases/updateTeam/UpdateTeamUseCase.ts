@@ -1,8 +1,7 @@
+import { IUpdateTeamsDTO } from '~/modules/teams/dtos/IUpdateTeamDTO';
+import { Team } from '~/modules/teams/infra/entities/teams';
+import { ITeamsRepository } from '~/modules/teams/infra/repositories/ITeamsRepository';
 import { inject, injectable } from 'tsyringe';
-
-import { IUpdateTeamsDTO } from '../../dtos/IUpdateTeamDTO';
-import { Team } from '../../infra/entities/teams';
-import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 
 @injectable()
 class UpdateTeamUseCase {

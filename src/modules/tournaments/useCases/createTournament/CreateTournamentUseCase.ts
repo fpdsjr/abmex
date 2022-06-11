@@ -1,8 +1,7 @@
+import { ICreateTournamentDTO } from '~/modules/tournaments/dtos/ICreateTournamentDTO';
+import { Tournament } from '~/modules/tournaments/infra/entities/tournament';
+import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
 import { inject, injectable } from 'tsyringe';
-
-import { ICreateTournamentDTO } from '../../dtos/ICreateTournamentDTO';
-import { Tournament } from '../../infra/entities/tournament';
-import { ITournamentRepository } from '../../infra/repositories/ITournamentRepository';
 
 @injectable()
 class CreateTournamentUseCase {

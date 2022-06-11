@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import { ICreateTournamentDTO } from '../../dtos/ICreateTournamentDTO';
 import { Tournament } from '../../infra/entities/tournament';
-import { ITournamentRepository } from '../../infra/ITournamentRepository';
+import { ITournamentRepository } from '../../infra/repositories/ITournamentRepository';
 
 @injectable()
 class CreateTournamentUseCase {

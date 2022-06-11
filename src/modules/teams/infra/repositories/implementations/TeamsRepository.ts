@@ -1,4 +1,5 @@
-import { prisma } from '../../../../../database/prisma';
+import { prisma } from '../../../../../shared/infra/database/prisma';
+import { Tournament } from '../../../../tournaments/infra/entities/tournament';
 import { ICreateTeamsDTO } from '../../../dtos/ICreateTeamsDTO';
 import { IUpdateTeamsDTO } from '../../../dtos/IUpdateTeamDTO';
 import { Team } from '../../entities/teams';
@@ -38,13 +39,26 @@ class TeamsRepository implements ITeamsRepository {
   }
 
   async findTeamById(id: string): Promise<Team | null> {
-    const findTeamById = prisma.time.findFirst({
+    const findTeamById = await prisma.time.findFirst({
       where: {
         id,
       },
     });
 
     return findTeamById;
+  }
+
+  async listTeamsByTournament(id: string): Promise<Tournament | null> {
+    const listTeamsByTournament = await prisma.campeonato.findFirst({
+      where: {
+        id,
+      },
+      include: {
+        times: true,
+      },
+    });
+
+    return listTeamsByTournament;
   }
 }
 

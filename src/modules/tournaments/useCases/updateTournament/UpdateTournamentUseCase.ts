@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { IUpdateTournamentDTO } from '../../dtos/IUpdateTournamentDTO';
-import { ITournamentRepository } from '../../infra/ITournamentRepository';
+import { ITournamentRepository } from '../../infra/repositories/ITournamentRepository';
 
 @injectable()
 class UpdateTournamentUseCase {

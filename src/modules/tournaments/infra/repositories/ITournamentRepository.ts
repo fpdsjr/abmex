@@ -10,6 +10,8 @@ interface ITournamentRepository {
   listAllTournament: () => Promise<Tournament[]>;
 
   updateTournament: ({ id, nome, descricao, premiacao }: IUpdateTournamentDTO) => Promise<Tournament>;
+
+  startTournament: (id: string) => Promise<Tournament>;
 }
 
 export { ITournamentRepository };

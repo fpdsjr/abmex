@@ -47,6 +47,19 @@ class TournamentRepository implements ITournamentRepository {
 
     return updateTournament;
   }
+
+  async startTournament(id: string): Promise<Tournament> {
+    const startTournament = await prisma.campeonato.update({
+      where: {
+        id,
+      },
+      data: {
+        status: 'INICIADO',
+      },
+    });
+
+    return startTournament;
+  }
 }
 
 export { TournamentRepository };

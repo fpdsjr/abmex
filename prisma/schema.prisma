@@ -10,12 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Status {
+  INICIADO
+}
+
 model Campeonato {
-  id        String @id @default(uuid())
+  id        String  @id @default(uuid())
   nome      String
   descricao String
   premiacao Int
   times     Time[]
+  status    Status?
 
   @@map("campeonato")
 }

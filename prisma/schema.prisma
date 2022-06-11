@@ -26,6 +26,7 @@ model Time {
   iniciais     String
   campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
   campeonatoId String?
+  deletado     Boolean     @default(false)
 
   @@map("time")
 }

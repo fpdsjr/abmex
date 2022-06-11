@@ -9,6 +9,7 @@ interface ITeamsRepository {
   listAllTeams: () => Promise<Team[]>;
   findTeamById: (id: string) => Promise<Team | null>;
   listTeamsByTournament: (id: string) => Promise<Tournament | null>;
+  deleteTeam: (id: string) => Promise<Team>;
 }
 
 export { ITeamsRepository };

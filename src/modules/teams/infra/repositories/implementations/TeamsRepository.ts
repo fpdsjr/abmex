@@ -60,6 +60,16 @@ class TeamsRepository implements ITeamsRepository {
 
     return listTeamsByTournament;
   }
+
+  async deleteTeam(id: string): Promise<Team> {
+    const deleteTeam = await prisma.time.delete({
+      where: {
+        id,
+      },
+    });
+
+    return deleteTeam;
+  }
 }
 
 export { TeamsRepository };

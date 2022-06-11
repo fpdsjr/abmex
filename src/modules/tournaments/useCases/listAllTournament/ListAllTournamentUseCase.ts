@@ -6,11 +6,10 @@ import { ITournamentRepository } from '../../infra/repositories/ITournamentRepos
 class ListAllTournamentUseCase {
   constructor(
     @inject('TournamentRepository')
-    private tournamentRepository: ITournamentRepository,
+    private tournamentRepository: ITournamentRepository
   ) {}
   async execute() {
-    const listAllTournaments =
-      await this.tournamentRepository.listAllTournament();
+    const listAllTournaments = await this.tournamentRepository.listAllTournament();
 
     return listAllTournaments;
   }

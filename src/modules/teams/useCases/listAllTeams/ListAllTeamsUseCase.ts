@@ -7,7 +7,7 @@ import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 class ListAllTeamsUseCase {
   constructor(
     @inject('TeamsRepository')
-    private teamsRepository: ITeamsRepository,
+    private teamsRepository: ITeamsRepository
   ) {}
 
   async execute(): Promise<Team[]> {

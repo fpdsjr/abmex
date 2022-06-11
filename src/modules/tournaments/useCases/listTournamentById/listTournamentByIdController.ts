@@ -6,9 +6,7 @@ import { ListTournamentByIdUseCase } from './listTournamentByIdUseCase';
 class ListTournamentByIdController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const listTournamentByIdUseCase = container.resolve(
-      ListTournamentByIdUseCase,
-    );
+    const listTournamentByIdUseCase = container.resolve(ListTournamentByIdUseCase);
 
     const listTournamentById = await listTournamentByIdUseCase.execute(id);
 

@@ -5,9 +5,7 @@ import { ListAllTournamentUseCase } from './ListAllTournamentUseCase';
 
 class ListAllTournamentController {
   async handle(request: Request, response: Response) {
-    const listAllTournamentUseCase = container.resolve(
-      ListAllTournamentUseCase,
-    );
+    const listAllTournamentUseCase = container.resolve(ListAllTournamentUseCase);
 
     const listAllTournament = await listAllTournamentUseCase.execute();
 

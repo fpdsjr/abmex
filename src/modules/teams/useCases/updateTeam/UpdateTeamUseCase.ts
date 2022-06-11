@@ -8,7 +8,7 @@ import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 class UpdateTeamUseCase {
   constructor(
     @inject('TeamsRepository')
-    private teamsRepository: ITeamsRepository,
+    private teamsRepository: ITeamsRepository
   ) {}
 
   async execute({ id, nome, iniciais }: IUpdateTeamsDTO): Promise<Team> {

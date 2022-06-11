@@ -5,11 +5,7 @@ import { Tournament } from '../../entities/tournament';
 import { ITournamentRepository } from '../ITournamentRepository';
 
 class TournamentRepository implements ITournamentRepository {
-  async createTournament({
-    nome,
-    descricao,
-    premiacao,
-  }: ICreateTournamentDTO): Promise<Tournament> {
+  async createTournament({ nome, descricao, premiacao }: ICreateTournamentDTO): Promise<Tournament> {
     const createTournament = await prisma.campeonato.create({
       data: {
         nome,
@@ -37,12 +33,7 @@ class TournamentRepository implements ITournamentRepository {
     return listAllTournaments;
   }
 
-  async updateTournament({
-    id,
-    nome,
-    descricao,
-    premiacao,
-  }: IUpdateTournamentDTO): Promise<Tournament> {
+  async updateTournament({ id, nome, descricao, premiacao }: IUpdateTournamentDTO): Promise<Tournament> {
     const updateTournament = await prisma.campeonato.update({
       where: {
         id,

@@ -6,12 +6,11 @@ import { ITeamsRepository } from '../../infra/repositories/ITeamsRepository';
 class ListTeamsByTournamentUseCase {
   constructor(
     @inject('TeamsRepository')
-    private teamsRepository: ITeamsRepository,
+    private teamsRepository: ITeamsRepository
   ) {}
 
   async execute(id: string) {
-    const listTeamsByTournament =
-      await this.teamsRepository.listTeamsByTournament(id);
+    const listTeamsByTournament = await this.teamsRepository.listTeamsByTournament(id);
 
     return listTeamsByTournament;
   }

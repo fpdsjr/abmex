@@ -7,7 +7,7 @@ import { ITournamentRepository } from '../../infra/repositories/ITournamentRepos
 class UpdateTournamentUseCase {
   constructor(
     @inject('TournamentRepository')
-    private tournamentRepository: ITournamentRepository,
+    private tournamentRepository: ITournamentRepository
   ) {}
 
   async execute({ id, nome, descricao, premiacao }: IUpdateTournamentDTO) {

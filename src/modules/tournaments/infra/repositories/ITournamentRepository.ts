@@ -3,22 +3,13 @@ import { IUpdateTournamentDTO } from '../../dtos/IUpdateTournamentDTO';
 import { Tournament } from '../entities/tournament';
 
 interface ITournamentRepository {
-  createTournament: ({
-    nome,
-    descricao,
-    premiacao,
-  }: ICreateTournamentDTO) => Promise<Tournament>;
+  createTournament: ({ nome, descricao, premiacao }: ICreateTournamentDTO) => Promise<Tournament>;
 
   listTournamentById: (id: string) => Promise<Tournament | null>;
 
   listAllTournament: () => Promise<Tournament[]>;
 
-  updateTournament: ({
-    id,
-    nome,
-    descricao,
-    premiacao,
-  }: IUpdateTournamentDTO) => Promise<Tournament>;
+  updateTournament: ({ id, nome, descricao, premiacao }: IUpdateTournamentDTO) => Promise<Tournament>;
 }
 
 export { ITournamentRepository };

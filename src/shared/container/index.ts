@@ -5,12 +5,6 @@ import { ITeamsRepository } from '../../modules/teams/infra/repositories/ITeamsR
 import { TournamentRepository } from '../../modules/tournaments/infra/repositories/implementations/TournamentRepository';
 import { ITournamentRepository } from '../../modules/tournaments/infra/repositories/ITournamentRepository';
 
-container.registerSingleton<ITournamentRepository>(
-  'TournamentRepository',
-  TournamentRepository,
-);
+container.registerSingleton<ITournamentRepository>('TournamentRepository', TournamentRepository);
 
-container.registerSingleton<ITeamsRepository>(
-  'TeamsRepository',
-  TeamsRepository,
-);
+container.registerSingleton<ITeamsRepository>('TeamsRepository', TeamsRepository);

@@ -8,14 +8,10 @@ import { ITournamentRepository } from '../../infra/repositories/ITournamentRepos
 class CreateTournamentUseCase {
   constructor(
     @inject('TournamentRepository')
-    private tournamentRepository: ITournamentRepository,
+    private tournamentRepository: ITournamentRepository
   ) {}
 
-  async execute({
-    nome,
-    descricao,
-    premiacao,
-  }: ICreateTournamentDTO): Promise<Tournament> {
+  async execute({ nome, descricao, premiacao }: ICreateTournamentDTO): Promise<Tournament> {
     const createTournament = await this.tournamentRepository.createTournament({
       nome,
       descricao,

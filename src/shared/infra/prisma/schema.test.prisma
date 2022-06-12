@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_TEST")
+}
+
+enum Status {
+  INICIADO
+}
+
+model Campeonato {
+  id        String    @id @default(uuid())
+  nome      String
+  descricao String
+  premiacao Int
+  status    Status?
+  times     Time[]
+  partidas  Partida[]
+
+  @@map("campeonato")
+}
+
+model Time {
+  id           String      @id @default(uuid())
+  nome         String
+  iniciais     String
+  campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
+  campeonatoId String?
+  deletado     Boolean     @default(false)
+  partidaTimeA Partida[]   @relation("timeA")
+  partidaTimeB Partida[]   @relation("timeB")
+
+
+
+  @@map("time")
+}
+
+model Partida {
+  id           Int         @id @default(autoincrement())
+  timeA        String
+  timeB        String
+  vencedor     String
+  campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
+  campeonatoId String?
+
+  timeAId Time @relation("timeA", fields: [timeA], references: [id])
+  timeBId Time @relation("timeB", fields: [timeB], references: [id])
+
+  @@map("partida")
+}

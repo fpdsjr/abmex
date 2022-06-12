@@ -17,10 +17,10 @@ tournamentRoutes.post('/tournament/create', createTournamentController.handle);
 
 tournamentRoutes.get('/tournament/list/:id', listTournamentByIdController.handle);
 
-tournamentRoutes.post('/tournament/update/:id', updateTournamentController.handle);
+tournamentRoutes.put('/tournament/update/:id', updateTournamentController.handle);
 
 tournamentRoutes.get('/tournament/listall', listAllTournamentController.handle);
 
-tournamentRoutes.get('/tournament/start/:id', startTournamentController.handle);
+tournamentRoutes.patch('/tournament/start/:id', startTournamentController.handle);
 
 export { tournamentRoutes };

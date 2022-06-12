@@ -17,7 +17,7 @@ const deleteTeamController = new DeleteTeamController();
 
 teamRoute.post('/team/create/:id', createTeamController.handle);
 
-teamRoute.post('/team/update/:id', updateTeamController.handle);
+teamRoute.put('/team/update/:id', updateTeamController.handle);
 
 teamRoute.get('/team/listall/', listAllTeams.handle);
 

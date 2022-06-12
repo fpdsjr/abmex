@@ -1,3 +1,4 @@
+import { Status } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
 
 class Tournament {
@@ -8,6 +9,8 @@ class Tournament {
   descricao: string;
 
   premiacao: number;
+
+  status: Status;
 
   constructor() {
     if (!this.id) {

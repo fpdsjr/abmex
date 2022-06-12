@@ -5,6 +5,7 @@ import './shared/container';
 
 import morgan from 'morgan';
 
+import { errorHandle } from './shared/infra/http/middleware';
 import { teamRoute } from './shared/infra/http/routes/team.routes';
 import { tournamentRoutes } from './shared/infra/http/routes/tournament.routes';
 
@@ -17,6 +18,8 @@ app.use(morgan('dev'));
 app.use(teamRoute);
 
 app.use(tournamentRoutes);
+
+app.use(errorHandle);
 
 app.listen(3999, () => {
   console.log('App Running');

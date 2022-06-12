@@ -16,6 +16,7 @@
     "import/no-unresolved": "error",
     "prettier/prettier": "error",
     "no-param-reassign": "off",
+    "no-non-null-assertion": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {

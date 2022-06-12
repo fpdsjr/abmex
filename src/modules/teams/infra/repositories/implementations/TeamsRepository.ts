@@ -5,6 +5,18 @@ import { IUpdateTeamsDTO } from '../../../dtos/IUpdateTeamDTO';
 import { Team } from '../../entities/teams';
 import { ITeamsRepository } from '../ITeamsRepository';
 
+export interface ITournament {
+  id: string;
+
+  nome: string;
+
+  descricao: string;
+
+  premiacao: number;
+
+  times: Team[];
+}
+
 class TeamsRepository implements ITeamsRepository {
   async createTeam({ id, nome, iniciais }: ICreateTeamsDTO): Promise<Team> {
     const createTeam = await prisma.time.create({
@@ -48,7 +60,7 @@ class TeamsRepository implements ITeamsRepository {
     return findTeamById;
   }
 
-  async listTeamsByTournament(id: string): Promise<Tournament | null> {
+  async listTeamsByTournament(id: string): Promise<ITournament | null> {
     const listTeamsByTournament = await prisma.campeonato.findFirst({
       where: {
         id,
@@ -61,7 +73,7 @@ class TeamsRepository implements ITeamsRepository {
     return listTeamsByTournament;
   }
 
-  async deleteTeam(id: string): Promise<Team> {
+  async deleteTeam(id: string) {
     const deleteTeam = await prisma.time.delete({
       where: {
         id,

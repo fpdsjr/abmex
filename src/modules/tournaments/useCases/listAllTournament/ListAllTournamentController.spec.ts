@@ -8,12 +8,21 @@ describe('Create Tournament Controller', () => {
   });
 
   it('should be able to create a new tournament', async () => {
-    const response = await request(app).post('/tournament/create').send({
+    await request(app).post('/tournament/create').send({
       nome: 'champions',
       descricao: 'maior campeonato da europa',
       premiacao: 45221,
     });
 
-    expect(response.status).toBe(201);
+    await request(app).post('/tournament/create').send({
+      nome: 'libertadores',
+      descricao: 'libertadores da america',
+      premiacao: 20000,
+    });
+
+    const response = await request(app).get('/tournament/listall');
+
+    expect(response.status).toBe(200);
+    expect(response.body.length).toBe(2);
   });
 });

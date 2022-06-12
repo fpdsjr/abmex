@@ -19,6 +19,12 @@ class TournamentRepositoryInMemory implements ITournamentRepository {
 
     return tournament;
   }
+
+  async listAllTournament(): Promise<Tournament[]> {
+    const listAllTournaments = this.tournament;
+
+    return listAllTournaments;
+  }
 }
 
 export { TournamentRepositoryInMemory };

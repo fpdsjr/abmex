@@ -10,6 +10,10 @@ describe('Create Tournament', () => {
     createTournamentUseCase = new CreateTournamentUseCase(tournamentRepositoryInMemory);
   });
 
+  afterAll(() => {
+    tournamentRepositoryInMemory.tournament.length = 0;
+  });
+
   it('should be able to create a new tournament', async () => {
     const newTournament = {
       nome: 'champions league',

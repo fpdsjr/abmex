@@ -1,4 +1,4 @@
-import { AppError } from '~/shared/infra/erros/AppError';
+import { AppError } from '~/shared/erros/AppError';
 import { Request, Response, NextFunction } from 'express';
 
 export async function errorHandle(err: Error, request: Request, response: Response, next: NextFunction): Promise<Response> {

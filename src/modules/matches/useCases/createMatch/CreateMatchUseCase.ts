@@ -1,5 +1,5 @@
 import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
-import { AppError } from '~/shared/infra/erros/AppError';
+import { AppError } from '~/shared/erros/AppError';
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateMatchDTO } from '../../dtos/ICreateMatchDTO';

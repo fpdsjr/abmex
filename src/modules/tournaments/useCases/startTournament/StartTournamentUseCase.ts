@@ -1,7 +1,7 @@
 import { ITeamsRepository } from '~/modules/teams/infra/repositories/ITeamsRepository';
 import { Tournament } from '~/modules/tournaments/infra/entities/tournament';
 import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
-import { AppError } from '~/shared/infra/erros/AppError';
+import { AppError } from '~/shared/erros/AppError';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

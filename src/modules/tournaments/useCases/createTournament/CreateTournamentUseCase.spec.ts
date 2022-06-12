@@ -13,7 +13,7 @@ describe('Create Tournament', () => {
   it('should be able to create a new tournament', async () => {
     const newTournament = {
       nome: 'champions league',
-      descricao: 'maior campeonato da europa',
+      descricao: 'maior campeonato da Europa',
       premiacao: 20000000,
     };
 

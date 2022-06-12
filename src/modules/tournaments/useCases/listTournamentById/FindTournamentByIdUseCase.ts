@@ -2,17 +2,17 @@ import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
-class ListTournamentByIdUseCase {
+class FindTournamentByIdUseCase {
   constructor(
     @inject('TournamentRepository')
     private tournamentRepository: ITournamentRepository
   ) {}
 
   async execute(id: string) {
-    const listTournamentById = await this.tournamentRepository.listTournamentById(id);
+    const findTournamentById = await this.tournamentRepository.listTournamentById(id);
 
-    return listTournamentById;
+    return findTournamentById;
   }
 }
 
-export { ListTournamentByIdUseCase };
+export { FindTournamentByIdUseCase };

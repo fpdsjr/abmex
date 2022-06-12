@@ -7,7 +7,7 @@ describe('Create Tournament Controller', () => {
     await prisma.campeonato.deleteMany();
   });
 
-  it('should be able to list all tournaments', async () => {
+  it('should be able to find a tournament by id', async () => {
     await request(app).post('/tournament/create').send({
       nome: 'champions',
       descricao: 'maior campeonato da europa',

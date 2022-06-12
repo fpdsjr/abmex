@@ -17,14 +17,14 @@ class TournamentRepository implements ITournamentRepository {
     return createTournament;
   }
 
-  async listTournamentById(id: string): Promise<Tournament | null> {
-    const listTournamentById = await prisma.campeonato.findFirst({
+  async findTournamentById(id: string): Promise<Tournament | null> {
+    const findTournamentById = await prisma.campeonato.findFirst({
       where: {
         id,
       },
     });
 
-    return listTournamentById;
+    return findTournamentById;
   }
 
   async listAllTournament(): Promise<Tournament[]> {

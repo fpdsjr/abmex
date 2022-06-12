@@ -1,5 +1,4 @@
 import { prisma } from '../../../../../shared/infra/database/prisma';
-import { Tournament } from '../../../../tournaments/infra/entities/tournament';
 import { ICreateTeamsDTO } from '../../../dtos/ICreateTeamsDTO';
 import { IUpdateTeamsDTO } from '../../../dtos/IUpdateTeamDTO';
 import { Team } from '../../entities/teams';

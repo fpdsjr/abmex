@@ -15,12 +15,13 @@ enum Status {
 }
 
 model Campeonato {
-  id        String  @id @default(uuid())
+  id        String    @id @default(uuid())
   nome      String
   descricao String
   premiacao Int
-  times     Time[]
   status    Status?
+  times     Time[]
+  partidas  Partida[]
 
   @@map("campeonato")
 }
@@ -32,6 +33,25 @@ model Time {
   campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
   campeonatoId String?
   deletado     Boolean     @default(false)
+  partidaTimeA Partida[]   @relation("timeA")
+  partidaTimeB Partida[]   @relation("timeB")
+
+
 
   @@map("time")
+}
+
+model Partida {
+
+  id           String      @id @default(uuid())
+  timeA        String
+  timeB        String
+  vencedor     String
+  campeonato   Campeonato? @relation(fields: [campeonatoId], references: [id])
+  campeonatoId String?
+
+  timeAId Time @relation("timeA", fields: [timeA], references: [id])
+  timeBId Time @relation("timeB", fields: [timeB], references: [id])
+
+  @@map("partida")
 }

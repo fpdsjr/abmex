@@ -11,7 +11,7 @@ class FindTournamentByIdController {
 
     const findTournamentById = await findTournamentByIdUseCase.execute(id);
 
-    return response.status(201).json(findTournamentById);
+    return response.status(200).json(findTournamentById);
   }
 }
 

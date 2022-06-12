@@ -15,7 +15,7 @@ const startTournamentController = new StartTournamentController();
 
 tournamentRoutes.post('/tournament/create', createTournamentController.handle);
 
-tournamentRoutes.get('/tournament/list/:id', findTournamentByIdController.handle);
+tournamentRoutes.get('/tournament/find/:id', findTournamentByIdController.handle);
 
 tournamentRoutes.put('/tournament/update/:id', updateTournamentController.handle);
 

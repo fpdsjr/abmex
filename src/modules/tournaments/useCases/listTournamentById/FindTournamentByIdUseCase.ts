@@ -1,4 +1,5 @@
 import { ITournamentRepository } from '~/modules/tournaments/infra/repositories/ITournamentRepository';
+import { AppError } from '~/shared/erros/AppError';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
@@ -9,7 +10,11 @@ class FindTournamentByIdUseCase {
   ) {}
 
   async execute(id: string) {
-    const findTournamentById = await this.tournamentRepository.listTournamentById(id);
+    const findTournamentById = await this.tournamentRepository.findTournamentById(id);
+
+    if (!findTournamentById) {
+      throw new AppError('Campeonato não encontrado', 400);
+    }
 
     return findTournamentById;
   }

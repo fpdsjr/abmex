@@ -11,7 +11,7 @@ class CreateMatchController {
 
     const createMatch = await createMatchUseCase.execute({ timeA, timeB, vencedor, campeonatoId: id });
 
-    return response.status(200).json(createMatch);
+    return response.status(201).json(createMatch);
   }
 }
 

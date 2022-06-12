@@ -12,7 +12,7 @@ class CreateTeamController {
 
     const createTeam = await createTeamUseCase.execute({ id, nome, iniciais });
 
-    return response.status(200).json(createTeam);
+    return response.status(201).json(createTeam);
   }
 }
 

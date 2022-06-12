@@ -15,7 +15,7 @@ class CreateTournamentController {
       premiacao,
     });
 
-    return response.status(200).json(createTournament);
+    return response.status(201).json(createTournament);
   }
 }
 

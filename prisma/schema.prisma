@@ -42,8 +42,7 @@ model Time {
 }
 
 model Partida {
-
-  id           String      @id @default(uuid())
+  id           Int         @id @default(autoincrement())
   timeA        String
   timeB        String
   vencedor     String

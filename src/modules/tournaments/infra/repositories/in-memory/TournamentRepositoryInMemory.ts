@@ -26,12 +26,26 @@ class TournamentRepositoryInMemory implements ITournamentRepository {
     return listAllTournaments;
   }
 
-  async findTournamentById(id: string): Promise<Tournament | null> {
+  async findTournamentById(id: string): Promise<Tournament> {
     const findTournamentById = this.tournament.find(tournament => {
       return tournament.id === id;
     });
 
-    return findTournamentById!;
+    return findTournamentById as Tournament;
+  }
+
+  async updateTournament({ id, nome, descricao, premiacao }: IUpdateTournamentDTO): Promise<Tournament> {
+    const findTournamentById = (await this.findTournamentById(id)) as Tournament;
+
+    Object.assign(findTournamentById, {
+      nome,
+      descricao,
+      premiacao,
+    });
+
+    this.tournament.push(findTournamentById);
+
+    return findTournamentById;
   }
 }
 

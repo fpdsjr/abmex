@@ -2,7 +2,7 @@ import { prisma } from '~/shared/infra/database/prisma';
 import { app } from '~/shared/infra/http/app';
 import request from 'supertest';
 
-describe('Create Tournament Controller', () => {
+describe('List All Tournament Controller', () => {
   afterAll(async () => {
     await prisma.campeonato.deleteMany();
   });

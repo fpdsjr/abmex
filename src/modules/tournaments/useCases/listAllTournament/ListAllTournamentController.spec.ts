@@ -4,7 +4,9 @@ import request from 'supertest';
 
 describe('List All Tournament Controller', () => {
   afterAll(async () => {
+    await prisma.time.deleteMany();
     await prisma.campeonato.deleteMany();
+    await prisma.partida.deleteMany();
   });
 
   it('should be able to list all tournaments', async () => {

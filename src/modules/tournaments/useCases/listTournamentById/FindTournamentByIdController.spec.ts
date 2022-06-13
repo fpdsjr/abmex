@@ -4,7 +4,9 @@ import request from 'supertest';
 
 describe('Find Tournament By Id Controller', () => {
   afterAll(async () => {
+    await prisma.time.deleteMany();
     await prisma.campeonato.deleteMany();
+    await prisma.partida.deleteMany();
   });
 
   it('should be able to find a tournament by id', async () => {

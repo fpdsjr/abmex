@@ -5,6 +5,8 @@ import request from 'supertest';
 describe('List All Teams Controller', () => {
   afterAll(async () => {
     await prisma.time.deleteMany();
+    await prisma.campeonato.deleteMany();
+    await prisma.partida.deleteMany();
   });
 
   it('should be able to delete a team', async () => {

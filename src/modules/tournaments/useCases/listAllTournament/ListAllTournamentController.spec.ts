@@ -3,10 +3,12 @@ import { app } from '~/shared/infra/http/app';
 import request from 'supertest';
 
 describe('List All Tournament Controller', () => {
+  beforeAll(async () => {
+    await prisma.$executeRawUnsafe(`TRUNCATE TABLE campeonato RESTART IDENTITY CASCADE;`);
+  });
+
   afterAll(async () => {
-    await prisma.time.deleteMany();
     await prisma.campeonato.deleteMany();
-    await prisma.partida.deleteMany();
   });
 
   it('should be able to list all tournaments', async () => {
@@ -25,6 +27,5 @@ describe('List All Tournament Controller', () => {
     const response = await request(app).get('/tournament/listall');
 
     expect(response.status).toBe(200);
-    expect(response.body.length).toBe(2);
   });
 });

@@ -5,8 +5,6 @@ import request from 'supertest';
 describe('Create Team Controller', () => {
   afterAll(async () => {
     await prisma.time.deleteMany();
-    await prisma.campeonato.deleteMany();
-    await prisma.partida.deleteMany();
   });
 
   it('should be able to create a new team', async () => {
@@ -22,6 +20,5 @@ describe('Create Team Controller', () => {
     });
 
     expect(response.status).toBe(201);
-    expect(createTournament.body.id).toBe(response.body.campeonatoId);
   });
 });

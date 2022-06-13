@@ -5,8 +5,6 @@ import request from 'supertest';
 describe('Find Team By Id Controller', () => {
   afterAll(async () => {
     await prisma.time.deleteMany();
-    await prisma.campeonato.deleteMany();
-    await prisma.partida.deleteMany();
   });
 
   it('should be able to find a team by id', async () => {
@@ -24,6 +22,5 @@ describe('Find Team By Id Controller', () => {
     const response = await request(app).get(`/team/${createdTeam.body.id}`);
 
     expect(response.status).toBe(200);
-    expect(response.body.nome).toBe('FLAMENGO');
   });
 });

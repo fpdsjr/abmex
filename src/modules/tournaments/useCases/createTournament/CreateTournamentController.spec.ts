@@ -4,9 +4,7 @@ import request from 'supertest';
 
 describe('Create Tournament Controller', () => {
   afterAll(async () => {
-    await prisma.time.deleteMany();
     await prisma.campeonato.deleteMany();
-    await prisma.partida.deleteMany();
   });
 
   it('should be able to create a new tournament', async () => {
@@ -17,6 +15,5 @@ describe('Create Tournament Controller', () => {
     });
 
     expect(response.status).toBe(201);
-    expect(response.body.nome).toBe('champions');
   });
 });

@@ -43,6 +43,15 @@ class TeamsRepositoryInMemory implements ITeamsRepository {
 
     return findTeamById!;
   }
+
+  async deleteTeam(id: string): Promise<Team> {
+    const deletedTeam = (await this.findTeamById(id)) as Team;
+    const deleteTeamById = this.teams.filter(team => team.id !== id);
+
+    deleteTeamById.map(team => this.teams.push(team));
+
+    return deletedTeam;
+  }
 }
 
 export { TeamsRepositoryInMemory };

@@ -2,6 +2,7 @@ import { ICreateTeamsDTO } from '~/modules/teams/dtos/ICreateTeamsDTO';
 import { IUpdateTeamsDTO } from '~/modules/teams/dtos/IUpdateTeamDTO';
 
 import { Team } from '../../entities/teams';
+import { ITournament } from '../implementations/TeamsRepository';
 import { ITeamsRepository } from '../ITeamsRepository';
 
 class TeamsRepositoryInMemory implements ITeamsRepository {
@@ -51,6 +52,20 @@ class TeamsRepositoryInMemory implements ITeamsRepository {
     deleteTeamById.map(team => this.teams.push(team));
 
     return deletedTeam;
+  }
+
+  async listTeamsByTournament(id: string): Promise<ITournament> {
+    const listTeamsByTournament = await this.teams.filter(teams => teams.campeonatoId === id);
+
+    const tournament = {
+      id,
+      nome: 'champions',
+      descricao: 'maior campeonato europa',
+      premiacao: 200000,
+      times: listTeamsByTournament,
+    };
+
+    return tournament;
   }
 }
 

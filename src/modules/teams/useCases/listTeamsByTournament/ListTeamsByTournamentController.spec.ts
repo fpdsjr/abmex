@@ -2,7 +2,7 @@ import { prisma } from '~/shared/infra/database/prisma';
 import { app } from '~/shared/infra/http/app';
 import request from 'supertest';
 
-describe('Find Team By Id Controller', () => {
+describe('List Teams By Tournament Controller', () => {
   afterAll(async () => {
     await prisma.campeonato.deleteMany();
   });
@@ -14,13 +14,21 @@ describe('Find Team By Id Controller', () => {
       premiacao: 45221,
     });
 
-    const createdTeam = await request(app).post(`/team/create/${createTournament.body.id}`).send({
+    await request(app).post(`/team/create/${createTournament.body.id}`).send({
       nome: 'FLAMENGO',
       iniciais: 'FLA',
     });
 
-    const response = await request(app).delete(`/team/delete/${createdTeam.body.id}`);
+    await request(app).post(`/team/create/${createTournament.body.id}`).send({
+      nome: 'VASCO',
+      iniciais: 'VSC',
+    });
+
+    const response = await request(app).get(`/team/tournament/${createTournament.body.id}`);
 
     expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('times');
+    expect(response.body.times[0].nome).toBe('FLAMENGO');
+    expect(response.body.times[1].nome).toBe('VASCO');
   });
 });

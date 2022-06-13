@@ -7,6 +7,8 @@ class Team {
 
   iniciais: string;
 
+  campeonatoId: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();

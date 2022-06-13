@@ -1,4 +1,5 @@
 import { ICreateTeamsDTO } from '~/modules/teams/dtos/ICreateTeamsDTO';
+import { IUpdateTeamsDTO } from '~/modules/teams/dtos/IUpdateTeamDTO';
 
 import { Team } from '../../entities/teams';
 import { ITeamsRepository } from '../ITeamsRepository';
@@ -18,6 +19,29 @@ class TeamsRepositoryInMemory implements ITeamsRepository {
     this.teams.push(newTeam);
 
     return newTeam;
+  }
+
+  async updateTeam({ id, nome, iniciais }: IUpdateTeamsDTO): Promise<Team> {
+    const findTeamById = (await this.findTeamById(id)) as Team;
+
+    Object.assign(findTeamById, {
+      nome,
+      iniciais,
+    });
+
+    return findTeamById;
+  }
+
+  async listAllTeams(): Promise<Team[]> {
+    const listAllTeams = await this.teams;
+
+    return listAllTeams;
+  }
+
+  async findTeamById(id: string): Promise<Team | null> {
+    const findTeamById = await this.teams.find(team => team.id === id);
+
+    return findTeamById!;
   }
 }
 

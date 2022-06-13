@@ -4,10 +4,10 @@ import request from 'supertest';
 
 describe('Find Team By Id Controller', () => {
   afterAll(async () => {
-    await prisma.campeonato.deleteMany();
+    await prisma.time.deleteMany();
   });
 
-  it('should be able to delete a team', async () => {
+  it('should be able to find a team by id', async () => {
     const createTournament = await request(app).post('/tournament/create').send({
       nome: 'champions',
       descricao: 'maior campeonato da europa',
@@ -19,8 +19,9 @@ describe('Find Team By Id Controller', () => {
       iniciais: 'FLA',
     });
 
-    const response = await request(app).delete(`/team/delete/${createdTeam.body.id}`);
+    const response = await request(app).get(`/team/${createdTeam.body.id}`);
 
     expect(response.status).toBe(200);
+    expect(response.body.nome).toBe('FLAMENGO');
   });
 });

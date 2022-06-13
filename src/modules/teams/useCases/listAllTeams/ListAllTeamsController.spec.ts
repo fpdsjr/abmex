@@ -4,7 +4,7 @@ import request from 'supertest';
 
 describe('List All Teams Controller', () => {
   afterAll(async () => {
-    await prisma.campeonato.deleteMany();
+    await prisma.time.deleteMany();
   });
 
   it('should be able to delete a team', async () => {
@@ -20,8 +20,8 @@ describe('List All Teams Controller', () => {
     });
 
     await request(app).post(`/team/create/${createTournament.body.id}`).send({
-      nome: 'BARCELONA',
-      iniciais: 'BAR',
+      nome: 'REAL MADRID',
+      iniciais: 'RAM',
     });
 
     const response = await request(app).get(`/team/listall/`);

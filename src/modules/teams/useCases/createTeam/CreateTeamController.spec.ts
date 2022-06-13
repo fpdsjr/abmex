@@ -4,7 +4,7 @@ import request from 'supertest';
 
 describe('Create Team Controller', () => {
   afterAll(async () => {
-    await prisma.campeonato.deleteMany();
+    await prisma.time.deleteMany();
   });
 
   it('should be able to create a new team', async () => {

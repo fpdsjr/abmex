@@ -27,15 +27,6 @@ async function main() {
         params.action = 'update';
         params.args.data = { deletado: true };
       }
-      if (params.action === 'deleteMany') {
-        // Delete many queries
-        params.action = 'updateMany';
-        if (params.args.data !== undefined) {
-          params.args.data.deletado = true;
-        } else {
-          params.args.data = { deletado: true };
-        }
-      }
     }
     return next(params);
   });

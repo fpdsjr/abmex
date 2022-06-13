@@ -4,7 +4,7 @@ import request from 'supertest';
 
 describe('Delete Team Controller', () => {
   afterAll(async () => {
-    await prisma.campeonato.deleteMany();
+    await prisma.time.deleteMany();
   });
 
   it('should be able to delete a team', async () => {
@@ -22,5 +22,6 @@ describe('Delete Team Controller', () => {
     const response = await request(app).delete(`/team/delete/${createdTeam.body.id}`);
 
     expect(response.status).toBe(200);
+    expect(response.body.deletado).toBeTruthy();
   });
 });
